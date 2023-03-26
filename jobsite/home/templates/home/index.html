@@ -31,7 +31,7 @@
 				<div class="navbar-header">
 					<!-- Logo -->
 					<div class="navbar-brand">
-						<a class="logo" href="index.html">
+						<a class="logo" href="{% url 'home:index' %}">
 							<img src="{% static 'home/img/logo-alt.png' %}" alt="logo">
 						</a>
 					</div>
@@ -246,7 +246,7 @@
 					<!-- footer logo -->
 					<div class="col-md-6">
 						<div class="footer-logo">
-							<a class="logo" href="index.html">
+							<a class="logo" href="{% url 'home:index' %}">
 								<img src="{% static 'home/img/logo.png' %}" alt="logo">
 							</a>
 						</div>

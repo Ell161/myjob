@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 
 def index(request: HttpRequest):
-    header = [('/', 'MyJob'),
+    header = [('home:index', 'MyJob'),
               ('index.html', 'Вакансии'),
               ('index.html', 'Резюме'),
               ('index.html', 'Вход'),
