@@ -2,7 +2,7 @@ from django.db import models
 
 
 class UserNationality(models.Model):
-    DEFAULT_PK = 60
+    DEFAULT_ID = 60
 
     nationality = models.CharField(max_length=50)
 
@@ -13,10 +13,14 @@ class UserNationality(models.Model):
         ordering = ['nationality']
 
 
+class UserPhoto(models.Model):
+    photo = models.ImageField(upload_to='photos/user_id', verbose_name='Фотография', blank=True)
+    id_resume = models.ForeignKey('MainInfoResume', on_delete=models.CASCADE)
+
+
 class MainInfoResume(models.Model):
     user_gender = [('Female', 'Женский'), ('Male', 'Мужской')]
 
-    photo = models.ImageField(upload_to='photos/user_id', verbose_name='Фотография', blank=True)
     last_name = models.CharField(max_length=50, verbose_name='Фамилия')
     first_name = models.CharField(max_length=50, verbose_name='Имя')
     middle_name = models.CharField(max_length=50, verbose_name='Отчество', blank=True)
@@ -26,7 +30,7 @@ class MainInfoResume(models.Model):
     email = models.EmailField(max_length=50, verbose_name='Email')
     phone = models.CharField(max_length=13, verbose_name='Телефон')
     nationality = models.ForeignKey('UserNationality', on_delete=models.PROTECT,
-                                    default=UserNationality.DEFAULT_PK,
+                                    default=UserNationality.DEFAULT_ID,
                                     verbose_name='Гражданство')
     date_create = models.DateField(auto_now_add=True, verbose_name='Дата создания')
     is_published = models.BooleanField(default=True, verbose_name='Опубликовать')

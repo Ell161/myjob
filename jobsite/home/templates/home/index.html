@@ -1,33 +1,26 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
 		<title>MyJob</title>
-
+		<link rel="stylesheet" href="{% static 'home/css/normalize.css' %}">
 		<!-- Google font -->
 		<link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
-
 		<!-- Bootstrap -->
 		<link type="text/css" rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}"/>
-
 		<!-- Font Awesome Icon -->
 		<link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}">
-
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" href="{% static 'home/css/style.css' %}"/>
-
     </head>
 	<body>
-
 		<!-- Header -->
 		<header id="header" class="transparent-nav">
 			<div class="container">
-
 				<div class="navbar-header">
 					<!-- Logo -->
 					<div class="navbar-brand">
@@ -36,24 +29,17 @@
 						</a>
 					</div>
 					<!-- /Logo -->
-
-					<!-- Mobile toggle -->
-					<button class="navbar-toggle">
-						<span></span>
-					</button>
-					<!-- /Mobile toggle -->
 				</div>
 
 				<!-- Navigation -->
 				<nav id="nav">
 					<ul class="main-menu nav navbar-nav navbar-right">
-						{% for link, name in headers %}
-							<li><a href="{{link}}">{{name}}</a></li>
+						{% for position in headers %}
+							<li><a href="{% url position.link %}">{{position.title}}</a></li>
 						{% endfor %}
 					</ul>
 				</nav>
 				<!-- /Navigation -->
-
 			</div>
 		</header>
 		<!-- /Header -->
@@ -76,19 +62,15 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 		<!-- /Home -->
 
 		<!-- About -->
 		<div id="about" class="section">
-
 			<!-- container -->
 			<div class="container">
-
 				<!-- row -->
 				<div class="row">
-
 					<div class="col-md-6">
 						<div class="section-header">
 							<h2>MyJob поможет найти сотрудников</h2>
@@ -133,7 +115,6 @@
 							</div>
 						</div>
 						<!-- /feature -->
-
 					</div>
 
 					<div class="col-md-6">
@@ -141,10 +122,8 @@
 							<img src="{% static 'home/img/about.png' %}" alt="">
 						</div>
 					</div>
-
 				</div>
 				<!-- row -->
-
 			</div>
 			<!-- container -->
 		</div>
@@ -152,10 +131,8 @@
 
 		<!-- Courses -->
 		<div id="courses" class="section">
-
 			<!-- container -->
 			<div class="container">
-
 				<!-- row -->
 				<div class="row">
 					<div class="section-header text-center">
@@ -166,10 +143,8 @@
 
 				<!-- resume -->
 				<div id="resume-wrapper">
-
 					<!-- row -->
 					<div class="row">
-
 						<!-- single resume -->
 						<ul>
 							{% for vacation, sector, salary in resume %}
@@ -187,10 +162,8 @@
 							{% endfor %}
 						</ul>
 						<!-- /single resume -->
-
 					</div>
 					<!-- /row -->
-
 				</div>
 				<!-- /resume -->
 
@@ -199,50 +172,39 @@
 						<a class="main-button icon-button" href="#">Каталог резюме</a>
 					</div>
 				</div>
-
 			</div>
 			<!-- container -->
-
 		</div>
 		<!-- /Courses -->
 
 		<!-- Call To Action -->
 		<div id="cta" class="section">
-
 			<!-- Backgound Image -->
 			<div class="bg-image bg-parallax overlay" style="background-image:url({% static 'home/img/2_block.jpg' %})"></div>
 			<!-- /Backgound Image -->
 
 			<!-- container -->
 			<div class="container">
-
 				<!-- row -->
 				<div class="row">
-
 					<div class="col-md-6">
 						<h2 class="white-text">Найдите подходящего человека для правильной работы</h2>
 						<p class="lead white-text">Опубликуйте вакансию с автообновлением. Максимум откликов в течение месяца.</p>
 						<a class="main-button icon-button" href="#">Разместить вакансию</a>
 					</div>
-
 				</div>
 				<!-- /row -->
-
 			</div>
 			<!-- /container -->
-
 		</div>
 		<!-- /Call To Action -->
 
 		<!-- Footer -->
 		<footer id="footer" class="section">
-
 			<!-- container -->
 			<div class="container">
-
 				<!-- row -->
 				<div class="row">
-
 					<!-- footer logo -->
 					<div class="col-md-6">
 						<div class="footer-logo">
@@ -256,19 +218,17 @@
 					<!-- footer nav -->
 					<div class="col-md-6">
 						<ul class="footer-nav">
-							{% for link, name in headers %}
-								<li><a href="{{link}}">{{name}}</a></li>
+							{% for position in headers %}
+								<li><a href="{% url position.link %}">{{position.title}}</a></li>
 							{% endfor %}
 						</ul>
 					</div>
 					<!-- /footer nav -->
-
 				</div>
 				<!-- /row -->
 
 				<!-- row -->
 				<div id="bottom-footer" class="row">
-
 					<!-- social -->
 					<div class="col-md-4 col-md-push-8">
 						<!-- <ul class="footer-social">
@@ -289,13 +249,10 @@
 						</div>
 					</div>
 					<!-- /copyright -->
-
 				</div>
 				<!-- row -->
-
 			</div>
 			<!-- /container -->
-
 		</footer>
 		<!-- /Footer -->
 
@@ -303,11 +260,9 @@
 		<div id='preloader'><div class='preloader'></div></div>
 		<!-- /preloader -->
 
-
 		<!-- jQuery Plugins -->
 		<script type="text/javascript" src="{% static 'home/js/jquery.min.js' %}"></script>
 		<script type="text/javascript" src="{% static 'home/js/bootstrap.min.js' %}"></script>
 		<script type="text/javascript" src="{% static 'home/js/main.js' %}"></script>
-
 	</body>
 </html>

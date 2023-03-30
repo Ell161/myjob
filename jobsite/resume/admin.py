@@ -9,5 +9,5 @@ class UserNationalityAdmin(admin.ModelAdmin):
 
 @admin.register(MainInfoResume)
 class MainInfoResumeAdmin(admin.ModelAdmin):
-    list_display = ('id', 'photo', 'last_name', 'first_name', 'middle_name', 'birthday',
+    list_display = ('id', 'last_name', 'first_name', 'middle_name', 'birthday',
                     'gender', 'city', 'email', 'phone', 'nationality', 'date_create', 'is_published', )
