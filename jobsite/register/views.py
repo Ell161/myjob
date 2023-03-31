@@ -1,6 +1,5 @@
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render
+from django.contrib.auth import login
+
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.contrib.auth.models import Group
@@ -22,3 +21,6 @@ class RegisterApplicantView(CreateView):
             login(self.request, user)
 
         return super(RegisterApplicantView, self).form_valid(form)
+
+
+

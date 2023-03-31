@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-k_q#)k9v2udkz^e6#7twd#tt&#f)s0hqwv2_!79tf0a@r&-%z*
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
-
+AUTH_USER_MODEL = 'register.CustomUser'
+LOGIN_REDIRECT_URL = '/'
 
 # Application definition
 

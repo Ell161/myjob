@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+from .models import *
 from django.core.exceptions import ValidationError
 
 
@@ -17,7 +17,7 @@ class RegisterUserForm(UserCreationForm):
                                 widget=forms.PasswordInput(attrs={'placeholder': 'Повторите пароль'}))
 
     class Meta:
-        model = User
+        model = CustomUser
         fields = ('last_name', 'first_name', 'email', 'password1', 'password2')
 
     def clean_last_name(self):
@@ -44,10 +44,3 @@ class RegisterUserForm(UserCreationForm):
             raise ValidationError('Введены недопустимые символы.')
         return first_name
 
-    def save(self, commit=True):
-        user = super(RegisterUserForm, self).save(commit=False)
-        user.username = self.cleaned_data['email']
-        if commit:
-            print("saving user")
-            user.save()
-        return user
